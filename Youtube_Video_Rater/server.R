@@ -18,7 +18,7 @@ shinyServer(function(input, output) {
     
     #connecting with YouTube api {vosonSML}      
     data<-reactive({
-        apikey<-"<your api key here>"
+        apikey<-"<your api key>"
         key<-Authenticate("youtube",apiKey=apikey)
         if(videoId()!=""){
             data<-tryCatch({Collect(key,videoId())},
