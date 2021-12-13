@@ -18,7 +18,7 @@ shinyServer(function(input, output) {
     
     #connecting with YouTube api {vosonSML}      
     data<-reactive({
-        apikey<-"<your api key>"
+        apikey<-"<your api key here>"
         key<-Authenticate("youtube",apiKey=apikey)
         if(videoId()!=""){
             data<-tryCatch({Collect(key,videoId())},
@@ -56,7 +56,7 @@ shinyServer(function(input, output) {
         #rating the video
         rating<-positivity/(positivity+negativity)*100 #percent of positive comments
         rating<-rating/100*5 #calculate 'above' percent of 5
-        paste0(rating,"/5")
+        paste0(round(rating,1),"/5")
     })
     
     #making sentiment graph
